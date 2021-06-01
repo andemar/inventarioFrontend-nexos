@@ -1,0 +1,64 @@
+<h3>Creacion de las mercancias</h3>
+
+<form (ngSubmit)="guardar()" autocomplete="off" [formGroup]="miFormulario">
+  <!-- nombreProducto -->
+  <div class="mb-3 row">
+    <label class="col-sm-3 col-form-label">Nombre del producto</label>
+    <div class="col-sm-9">
+      <input
+        type="text"
+        class="form-control"
+        formControlName="nombreProducto"
+        placeholder="Nombre del producto"
+      />
+    </div>
+  </div>
+
+  <!-- cantidad -->
+  <div class="mb-3 row">
+    <label class="col-sm-3 col-form-label">cantidad del producto</label>
+    <div class="col-sm-9">
+      <input
+        type="number"
+        class="form-control"
+        formControlName="cantidad"
+        placeholder="Cantidad del producto"
+      />
+    </div>
+  </div>
+
+  <!-- fecha ingreso -->
+  <div class="mb-3 row">
+    <label class="col-sm-3 col-form-label">Fecha de ingreso</label>
+    <div class="col-sm-9">
+      <input
+        type="date"
+        class="form-control"
+        formControlName="fechaIngreso"
+        placeholder="Fecha de ingreso de la mercancia"
+      />
+    </div>
+  </div>
+
+  <!-- usuario -->
+  <div class="row mb-3">
+    <div class="col">
+      <label class="form-label">Usuario:</label>
+      <select class="form-control" formControlName="usuario">
+        <option value="">-- Seleccione usuario --</option>
+        <option
+          *ngFor="let usuario of usuarios"
+          [value]="usuario.uuid | lowercase"
+        >
+          {{ usuario.nombre }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <button class="btn btn-primary float-end" type="submit">Guardar</button>
+    </div>
+  </div>
+</form>

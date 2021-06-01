@@ -1,0 +1,62 @@
+<h3>Creacion de los usuarios</h3>
+
+<form (ngSubmit)="guardar()" autocomplete="off" [formGroup]="miFormulario">
+  <!-- nombre -->
+  <div class="mb-3 row">
+    <label class="col-sm-3 col-form-label">Nombre</label>
+    <div class="col-sm-9">
+      <input
+        type="text"
+        class="form-control"
+        formControlName="nombre"
+        placeholder="Nombre del usuario"
+      />
+    </div>
+  </div>
+
+  <!-- edad -->
+  <div class="mb-3 row">
+    <label class="col-sm-3 col-form-label">Edad</label>
+    <div class="col-sm-9">
+      <input
+        type="number"
+        class="form-control"
+        formControlName="edad"
+        placeholder="Edad del usuario"
+      />
+    </div>
+  </div>
+
+  <!-- fecha ingreso -->
+  <div class="mb-3 row">
+    <label class="col-sm-3 col-form-label">Fecha de ingreso</label>
+    <div class="col-sm-9">
+      <input
+        type="date"
+        class="form-control"
+        formControlName="fechaIngreso"
+        placeholder="Fecha de ingreso del usuario"
+      />
+    </div>
+  </div>
+
+  <!-- cargo -->
+  <div class="row mb-3">
+    <div class="col">
+      <label class="form-label">Cargo:</label>
+      <select class="form-control" formControlName="cargo">
+        <option value="">-- Seleccione Cargo --</option>
+        <option *ngFor="let cargo of cargos" [value]="cargo.uuid | lowercase">
+          {{ cargo.titulo }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Guardar -->
+  <div class="row">
+    <div class="col-sm-12">
+      <button class="btn btn-primary float-end" type="submit">Guardar</button>
+    </div>
+  </div>
+</form>

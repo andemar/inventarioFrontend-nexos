@@ -1,0 +1,21 @@
+<h3>Creacion de los cargos</h3>
+
+<form (ngSubmit)="guardar()" autocomplete="off" [formGroup]="miFormulario">
+  <div class="mb-3 row">
+    <label class="col-sm-3 col-form-label">Titulo</label>
+    <div class="col-sm-9">
+      <input
+        type="text"
+        class="form-control"
+        formControlName="titulo"
+        placeholder="Titulo del cargo"
+      />
+    </div>
+  </div>
+  <!-- Guardar -->
+  <div class="row">
+    <div class="col-sm-12">
+      <button class="btn btn-primary float-end" type="submit">Guardar</button>
+    </div>
+  </div>
+</form>

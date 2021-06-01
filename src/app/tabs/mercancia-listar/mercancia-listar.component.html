@@ -1,0 +1,39 @@
+<h3>Listar las mercancias</h3>
+
+<form (ngSubmit)="listar()" autocomplete="off" [formGroup]="miFormulario">
+  <!-- orden -->
+  <div class="row mb-3">
+    <div class="col">
+      <label class="form-label">Ordenar por:</label>
+      <select class="form-control" formControlName="orden">
+        <option value="">-- Seleccione el orden --</option>
+        <option *ngFor="let orden of ordenes" [value]="orden.id">
+          {{ orden.titulo }}
+        </option>
+      </select>
+    </div>
+  </div>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre producto</th>
+            <th>Cantidad</th>
+            <th>Fecha de ingreso</th>
+            <th>Nombre del usuario</th>
+            <th>Usuario ultima modificacion</th>
+            <th>Fecha modificacion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let mercancia of mercancias">
+            <td>{{mercancia.nombreProducto}}</td>
+            <td>{{mercancia.cantidad}}</td>
+            <td>{{mercancia.fechaIngreso}}</td>
+            <td>{{mercancia.usuario.nombre}}</td>
+            <td>{{(mercancia.usuarioModificacion) ? mercancia.usuarioModificacion.nombre : ''}}</td>
+            <td>{{(mercancia.fechaModificacion) ? mercancia.fechaModificacion : ''}}</td>
+        </tr>
+    </tbody>
+</table>

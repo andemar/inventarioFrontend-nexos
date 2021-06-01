@@ -1,0 +1,13 @@
+<h2>Menu</h2>
+<hr />
+
+<ul class="list-group">
+  <li
+    *ngFor="let item of tabsMenu"
+    class="list-group-item"
+    [routerLink]="item.ruta"
+    routerLinkActive="active"
+  >
+    {{ item.texto }}
+  </li>
+</ul>
